@@ -323,6 +323,7 @@ func (h *helm) install(bundleID string, manifest *manifest.Manifest, chart *char
 		u.Timeout = timeout
 		u.DryRun = dryRun
 		u.PostRenderer = pr
+		u.DependencyUpdate = true
 		if u.Timeout > 0 {
 			u.Wait = true
 		}
