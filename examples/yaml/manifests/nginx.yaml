@@ -1,3 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+spec:
+  selector:
+    app: webserver
+  ports:
+    - protocol: TCP
+      port: 30000
+      targetPort: 80
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -18,3 +30,5 @@ spec:
       containers:
       - image: nginx
         name: webserver
+        ports:
+        - containerPort: 80
